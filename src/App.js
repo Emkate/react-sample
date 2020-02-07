@@ -1,14 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.scss';
-import { Navbar } from './components/navbar/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
 import { Header, HeaderName, Content } from 'carbon-components-react';
-import { ItemsList } from './components/itemsList/ItemsList';
+import ItemsList from './components/ItemsList/ItemsList';
 
 function App() {
   return (
