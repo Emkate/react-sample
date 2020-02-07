@@ -1,0 +1,12 @@
+
+.navbar{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 240px;   
+}
+
+.active-link {
+  background-color: black;
+  color: #fff;
+}
