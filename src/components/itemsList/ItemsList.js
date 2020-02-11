@@ -1,17 +1,18 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import './ItemsList.scss'
 import { HttpService } from '../../services/HttpService';
 import { map } from 'rxjs/operators';
 import ItemsListTemplate from './ItemsListTemplate';
 import ItemsListToolbar from './ItemsListToolbar';
 import Loader from './../Loader';
+import ItemAddButton from '../ItemAddButton';
 
 class ItemsList extends Component {
     constructor(props) {
       super(props);
       this.state = {
         items: [],
-        filteredItems: [],
+        filteredItems: null,
         filterValue: ''
       };
       this.httpService = new HttpService();
@@ -49,20 +50,23 @@ class ItemsList extends Component {
 
     render() {
       const { filteredItems, filterValue } = this.state;
-      if (!filteredItems.length && !filterValue) {
+      if (!filteredItems && !filterValue) {
         return <Loader></Loader>
       }
 
       return (
-        <ItemsListTemplate
-          filteredItems={this.state.filteredItems}
-          toolbar={
-            <ItemsListToolbar
-              filterValue={this.state.filterValue}
-              onFilterValueChange={this.onInputChange.bind(this)}
-            />
-          }
-        ></ItemsListTemplate>
+        <Fragment>
+          <ItemsListTemplate
+            filteredItems={this.state.filteredItems}
+            toolbar={
+              <ItemsListToolbar
+                filterValue={this.state.filterValue}
+                onFilterValueChange={this.onInputChange.bind(this)}
+              />
+            }
+          ></ItemsListTemplate>
+          <ItemAddButton></ItemAddButton>
+        </Fragment>
       );
     }
   }

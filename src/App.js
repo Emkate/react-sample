@@ -9,6 +9,7 @@ import {
 import { Header, HeaderName, Content } from 'carbon-components-react';
 import ItemsList from './components/ItemsList/ItemsList';
 import ItemDetails from './components/ItemDetails/ItemDetails';
+import ItemDetailsNew from './components/ItemDetails/ItemDetailsNew';
 
 function App() {
   return (
@@ -28,8 +29,8 @@ function App() {
             <Route path="/list">
               <ItemsList></ItemsList>
             </Route>
-            <Route path="/edit/:itemId" component={ItemDetails}>
-            </Route>
+            <Route path="/edit/:itemId" component={ItemDetails}></Route>
+            <Route path="/newItem" component={ItemDetailsNew}></Route>
           </Switch>
         </Content>
       </Router>

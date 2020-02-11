@@ -20,6 +20,10 @@ export class HttpService {
     )
   }
 
+  delete(url) {
+    return this.request('DELETE', url);
+  }
+
   request(type, url, body) {
     return ajax({
       url,
