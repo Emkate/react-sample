@@ -10,5 +10,10 @@ export const headers = [
   {
     header: 'Body',
     key: 'body'
+  },
+  {
+    header: 'Action',
+    key: 'actions',
+    preventSorting: true
   }
 ];

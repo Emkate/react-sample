@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import './ItemsList.scss'
 import { HttpService } from '../../services/HttpService';
-import { Loading } from 'carbon-components-react';
 import { map } from 'rxjs/operators';
 import ItemsListTemplate from './ItemsListTemplate';
 import ItemsListToolbar from './ItemsListToolbar';
+import Loader from './../Loader';
 
 class ItemsList extends Component {
     constructor(props) {
@@ -19,9 +19,9 @@ class ItemsList extends Component {
     }
 
     getItems() {
-      const itemsURL = 'https://jsonplaceholder.typicode.com/posts';
+      const itemsURL = 'https://testdb-a0af.restdb.io/rest/articles';
       this.httpService.get(itemsURL).pipe(
-        map(data => data.map(el => ({ ...el, id: String(el.id) })))
+        map(data => data.map(el => ({ ...el, id: String(el._id) })))
       ).subscribe(val => {
         this.setState({ items: val, filteredItems: val });
       })
@@ -50,11 +50,7 @@ class ItemsList extends Component {
     render() {
       const { filteredItems, filterValue } = this.state;
       if (!filteredItems.length && !filterValue) {
-        return <div className="loader-wrapper">
-          <Loading active
-            small={false}
-            withOverlay={false}></Loading>;  
-        </div>
+        return <Loader></Loader>
       }
 
       return (

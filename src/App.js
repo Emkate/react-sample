@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { Header, HeaderName, Content } from 'carbon-components-react';
 import ItemsList from './components/ItemsList/ItemsList';
+import ItemDetails from './components/ItemDetails/ItemDetails';
 
 function App() {
   return (
@@ -27,11 +28,12 @@ function App() {
             <Route path="/list">
               <ItemsList></ItemsList>
             </Route>
+            <Route path="/edit/:itemId" component={ItemDetails}>
+            </Route>
           </Switch>
         </Content>
-    </Router>
-      </div>
-
+      </Router>
+    </div>
   );
 }
 

@@ -11,7 +11,7 @@ function ItemsListHeaders({ getHeaderProps }) {
     <TableHead>
       <TableRow>
         {headers.map(header => (
-          <TableHeader {...getHeaderProps({ header })}>
+          <TableHeader {...getHeaderProps({ header })} isSortable={!header.preventSorting}>
             {header.header}
           </TableHeader>
         ))}
