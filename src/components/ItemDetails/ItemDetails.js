@@ -48,13 +48,20 @@ class ItemDetails extends Component {
       return <Loader></Loader>
     }
 
+    const { entityName } = this.props;
+    const title = entityName[0].toUpperCase() + entityName.substring(1, entityName.length - 1);
+    const editableFields = this.props.fields.filter(field => (
+      !['id', 'actions'].includes(field.key) && field.type
+    ));
+
     return (
       <Fragment>
-        <h1>Item { this.state.itemId }</h1>
+        <h1>{title} { this.state.itemId }</h1>
         <ItemDetailsForm
           itemData={this.state.itemDetails}
           submitForm={this.editItem.bind(this)}
           changeInputValue={this.changeInput.bind(this)}
+          fields={editableFields}
         ></ItemDetailsForm>
       </Fragment>
     )

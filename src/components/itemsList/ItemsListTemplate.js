@@ -8,6 +8,7 @@ const {
 } = DataTable;
 
 function ItemsListTemplate({ filteredItems, toolbar, headers, entityName }) {
+  const title = entityName[0].toUpperCase() + entityName.substring(1);
   return (
     <DataTable
       locale="en"
@@ -16,7 +17,7 @@ function ItemsListTemplate({ filteredItems, toolbar, headers, entityName }) {
       headers={headers}
       rows={filteredItems}
       render={({ rows, getHeaderProps }) => (
-        <TableContainer title="DataTable">
+        <TableContainer title={title}>
           {toolbar}
           <Table>
             <ItemsListHeaders getHeaderProps={getHeaderProps} headers={headers}></ItemsListHeaders>

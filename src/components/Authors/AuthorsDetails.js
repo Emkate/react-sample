@@ -1,12 +1,12 @@
 import React from 'react';
 import ItemDetails from '../ItemDetails/ItemDetails';
-import { headers } from './articlesHeaders';
+import { headers } from './authorsHeaders';
 
-function ArticlesDetails(props) {
+function AuthorsDetails(props) {
   const itemId = props.match.params.itemId;
   return (
     <ItemDetails
-      entityName="articles"
+      entityName="authors"
       itemId={itemId}
       historyContext={props.history}
       fields={headers}
@@ -14,4 +14,4 @@ function ArticlesDetails(props) {
   )
 }
 
-export default ArticlesDetails;
+export default AuthorsDetails;

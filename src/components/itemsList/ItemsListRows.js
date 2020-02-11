@@ -26,7 +26,7 @@ function ItemsListRows({ rows, entityName }) {
               if (cell.info.header === 'actions') {
                 return (
                   <TableCell key={cell.id}>
-                    <OverflowMenu>
+                    <OverflowMenu flipped>
                       <OverflowMenuItem itemText="Edit" href={`/${entityName}/edit/${row.id}`}/>
                       <OverflowMenuItem itemText="Delete" onClick={() => deleteItem(row.id)}/>
                     </OverflowMenu>

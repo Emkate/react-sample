@@ -14,10 +14,13 @@ function Navbar() {
     >
       <SideNavItems>
         <SideNavLink href="/">
-          Strona główna
+          Main page
         </SideNavLink>
         <SideNavLink href="/articles/list">
-          Lista
+          Articles
+        </SideNavLink>
+        <SideNavLink href="/authors/list">
+          Authors
         </SideNavLink>
       </SideNavItems>
     </SideNav>

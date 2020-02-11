@@ -5,11 +5,13 @@ export const headers = [
   },
   {
     header: 'Title',
-    key: 'title'
+    key: 'title',
+    type: 'input'
   },
   {
     header: 'Body',
-    key: 'body'
+    key: 'body',
+    type: 'textarea'
   },
   {
     header: 'Action',

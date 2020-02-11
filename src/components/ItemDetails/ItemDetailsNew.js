@@ -7,11 +7,13 @@ class ItemDetailsNew extends Component {
   constructor(props) {
     super(props);
     this.httpService = new HttpService();
+
+    const itemDetails = props.fields.reduce((sum, next) => {
+      return { ...sum, [next.key]: '' };
+    }, {})
+
     this.state = {
-      itemDetails: {
-        title: '',
-        body: ''
-      },
+      itemDetails,
       lockView: false
     }
   }
@@ -40,13 +42,20 @@ class ItemDetailsNew extends Component {
       return <Loader></Loader>
     }
 
+    const { entityName } = this.props;
+    const title = entityName.substring(0, entityName.length - 1);
+    const editableFields = this.props.fields.filter(field => (
+      !['id', 'actions'].includes(field.key) && field.type
+    ));
+
     return (
       <Fragment>
-        <h1>New item</h1>
+        <h1>New {title}</h1>
         <ItemDetailsForm
           itemData={this.state.itemDetails}
           submitForm={this.saveItem.bind(this)}
           changeInputValue={this.changeInput.bind(this)}
+          fields={editableFields}
         ></ItemDetailsForm>
       </Fragment>
     );

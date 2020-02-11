@@ -1,15 +1,15 @@
 import React from 'react';
 import ItemDetailsNew from '../ItemDetails/ItemDetailsNew';
-import { headers } from './articlesHeaders';
+import { headers } from './authorsHeaders';
 
-function ArticlesNew(props) {
+function AuthorsNew(props) {
   return (
     <ItemDetailsNew
-      entityName="articles"
+      entityName="authors"
       historyContext={props.history}
       fields={headers}
     ></ItemDetailsNew>
   )
 }
 
-export default ArticlesNew;
+export default AuthorsNew;
