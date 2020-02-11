@@ -2,13 +2,12 @@ import React from 'react';
 import ItemsListHeaders from './ItemsListHeaders';
 import ItemsListRows from './ItemsListRows';
 import { DataTable } from 'carbon-components-react';
-import { headers } from './headers';
 const {
   TableContainer,
   Table
 } = DataTable;
 
-function ItemsListTemplate({filteredItems, toolbar}) {
+function ItemsListTemplate({ filteredItems, toolbar, headers, entityName }) {
   return (
     <DataTable
       locale="en"
@@ -20,8 +19,8 @@ function ItemsListTemplate({filteredItems, toolbar}) {
         <TableContainer title="DataTable">
           {toolbar}
           <Table>
-            <ItemsListHeaders getHeaderProps={getHeaderProps}></ItemsListHeaders>
-            <ItemsListRows rows={rows}></ItemsListRows>
+            <ItemsListHeaders getHeaderProps={getHeaderProps} headers={headers}></ItemsListHeaders>
+            <ItemsListRows rows={rows} entityName={entityName}></ItemsListRows>
           </Table>
         </TableContainer>
       )}

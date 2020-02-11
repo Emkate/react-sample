@@ -4,16 +4,16 @@ import { HttpService } from '../../services/HttpService';
 import { useHistory } from 'react-router-dom';
 
 
-function ItemsListRows({ rows }) {
+function ItemsListRows({ rows, entityName }) {
   const httpService = new HttpService();
   const history = useHistory();
 
   function deleteItem(itemId) {
-    const deleteURL = `https://testdb-a0af.restdb.io/rest/articles/${itemId}`;
+    const deleteURL = `https://testdb-a0af.restdb.io/rest/${entityName}/${itemId}`;
     httpService.delete(deleteURL).subscribe(() => {
       history.push('/empty')
       setTimeout(() => {
-        history.push('/list');
+        history.push(`${entityName}/list`);
       })
     })
   }
@@ -27,7 +27,7 @@ function ItemsListRows({ rows }) {
                 return (
                   <TableCell key={cell.id}>
                     <OverflowMenu>
-                      <OverflowMenuItem itemText="Edit" href={`/edit/${row.id}`}/>
+                      <OverflowMenuItem itemText="Edit" href={`/${entityName}/edit/${row.id}`}/>
                       <OverflowMenuItem itemText="Delete" onClick={() => deleteItem(row.id)}/>
                     </OverflowMenu>
                   </TableCell>

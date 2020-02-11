@@ -6,11 +6,12 @@ import Loader from '../Loader';
 class ItemDetails extends Component {
   constructor(props) {
     super(props);
-    const itemId = this.props.match.params.itemId;
+    
+    const itemId = props.itemId;
     this.state = {
       itemId,
       itemDetails: null,
-      itemURL: `https://testdb-a0af.restdb.io/rest/articles/${itemId}`,
+      itemURL: `https://testdb-a0af.restdb.io/rest/${props.entityName}/${itemId}`,
       lockView: false
     }
 
@@ -29,7 +30,7 @@ class ItemDetails extends Component {
 
     event.preventDefault();
     this.httpService.put(this.state.itemURL, this.state.itemDetails).subscribe(() => {
-      this.props.history.push('/list');
+      this.props.historyContext.push(`/${this.props.entityName}/list`);
     })
   }
 

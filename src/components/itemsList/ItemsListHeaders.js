@@ -4,9 +4,8 @@ import {
   TableRow,
   TableHeader
 } from 'carbon-components-react';
-import { headers } from './headers';
 
-function ItemsListHeaders({ getHeaderProps }) {
+function ItemsListHeaders({ getHeaderProps, headers }) {
   return (
     <TableHead>
       <TableRow>

@@ -16,7 +16,7 @@ function Navbar() {
         <SideNavLink href="/">
           Strona główna
         </SideNavLink>
-        <SideNavLink href="/list">
+        <SideNavLink href="/articles/list">
           Lista
         </SideNavLink>
       </SideNavItems>

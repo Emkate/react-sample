@@ -7,9 +7,9 @@ import {
   Route
 } from "react-router-dom";
 import { Header, HeaderName, Content } from 'carbon-components-react';
-import ItemsList from './components/ItemsList/ItemsList';
-import ItemDetails from './components/ItemDetails/ItemDetails';
-import ItemDetailsNew from './components/ItemDetails/ItemDetailsNew';
+import ArticlesList from './components/Articles/ArticlesList';
+import ArticlesDetails from './components/Articles/ArticlesDetails';
+import ArticlesNew from './components/Articles/ArticlesNew';
 
 function App() {
   return (
@@ -17,20 +17,18 @@ function App() {
         <Header aria-label="Crud App">
           <HeaderName>Crud App</HeaderName>
         </Header>
-
         <Navbar></Navbar>
-        
       <Router>
         <Content className="full-width">
           <Switch>
             <Route exact path="/">
               <div>glowna strone hehehehe</div>
             </Route>
-            <Route path="/list">
-              <ItemsList></ItemsList>
+            <Route path="/articles/list">
+              <ArticlesList></ArticlesList>
             </Route>
-            <Route path="/edit/:itemId" component={ItemDetails}></Route>
-            <Route path="/newItem" component={ItemDetailsNew}></Route>
+            <Route path="/articles/edit/:itemId" component={ArticlesDetails}></Route>
+            <Route path="/articles/newItem" component={ArticlesNew}></Route>
           </Switch>
         </Content>
       </Router>

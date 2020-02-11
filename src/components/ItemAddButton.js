@@ -4,11 +4,11 @@ import { Add32 } from '@carbon/icons-react';
 import React from 'react';
 import './ItemAddButton.scss';
 
-function ItemAddButton() {
+function ItemAddButton(props) {
   let history = useHistory();
 
   function handleRedirect() {
-    history.push('/newItem');
+    history.push(`/${props.entityName}/newItem`);
   }
 
   return (

@@ -19,10 +19,10 @@ class ItemDetailsNew extends Component {
   saveItem(event) {
     this.setState({ lockView: true });
 
-    const itemURL = `https://testdb-a0af.restdb.io/rest/articles`;
+    const itemURL = `https://testdb-a0af.restdb.io/rest/${this.props.entityName}`;
     event.preventDefault();
     this.httpService.post(itemURL, this.state.itemDetails).subscribe(() => {
-      this.props.history.push('/list');
+      this.props.historyContext.push(`/${this.props.entityName}/list`);
     })
   }
 
